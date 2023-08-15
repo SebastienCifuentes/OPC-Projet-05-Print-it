@@ -20,15 +20,14 @@ const slides = [
 let compteurSlide = 0
 let currentSlide = '/slide1.jpg'
 const imageBaseline = './assets/images/slideshow/'
+const bannerImg = document.querySelector('.banner-img')
+const tag_line = document.querySelector('.tag_line')
+const arrowLeft = document.querySelector('.arrow_left')
+const arrowRight = document.querySelector('.arrow_right')
 
 function changeSlide() {
-	const bannerImg = document.querySelector('.banner-img')
-	const tag_line = document.querySelector('.tag_line')
-	const arrowLeft = document.querySelector('.arrow_left')
-	const arrowRight = document.querySelector('.arrow_right')
-
 	arrowLeft.addEventListener('click', function () {
-		console.log('click gaucke')
+		console.log('click gauche')
 		compteurSlide--
 		currentSlide = slides[compteurSlide]
 		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
