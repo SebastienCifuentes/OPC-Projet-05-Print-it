@@ -16,3 +16,32 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+let compteurSlide = 0
+let currentSlide = '/slide1.jpg'
+const imageBaseline = './assets/images/slideshow/'
+
+function changeSlide() {
+	const bannerImg = document.querySelector('.banner-img')
+	const tag_line = document.querySelector('.tag_line')
+	const arrowLeft = document.querySelector('.arrow_left')
+	const arrowRight = document.querySelector('.arrow_right')
+
+	arrowLeft.addEventListener('click', function () {
+		console.log('click gaucke')
+		compteurSlide--
+		currentSlide = slides[compteurSlide]
+		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
+		tag_line.innerHTML = currentSlide.tagLine
+	})
+
+	arrowRight.addEventListener('click', function () {
+		console.log('click droit')
+		compteurSlide++
+		currentSlide = slides[compteurSlide]
+		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
+		tag_line.innerHTML = currentSlide.tagLine
+	})
+}
+
+changeSlide()
