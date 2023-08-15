@@ -40,12 +40,12 @@ function changeSlide() {
 	arrowRight.addEventListener('click', function () {
 		console.log('click droit')
 		compteurSlide++
+		if (compteurSlide === slides.length) {
+            compteurSlide = 0
+		}
 		currentSlide = slides[compteurSlide]
 		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
 		tag_line.innerHTML = currentSlide.tagLine
-		if (compteurSlide === slides.length - 1) {
-            compteurSlide = -1
-        }
 	})
 }
 
