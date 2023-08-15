@@ -24,6 +24,18 @@ const bannerImg = document.querySelector('.banner-img')
 const tag_line = document.querySelector('.tag_line')
 const arrowLeft = document.querySelector('.arrow_left')
 const arrowRight = document.querySelector('.arrow_right')
+const dots = document.querySelectorAll('.dot')
+
+activeBulletPoint()
+
+function activeBulletPoint() {
+	dots.forEach((dot, index) => {
+		dot.classList.remove('dot_selected')
+		if (index === compteurSlide) {
+			dot.classList.add('dot_selected')
+		}
+	})
+}
 
 function changeSlide() {
 	arrowLeft.addEventListener('click', function () {
@@ -35,6 +47,7 @@ function changeSlide() {
 		currentSlide = slides[compteurSlide]
 		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
 		tag_line.innerHTML = currentSlide.tagLine
+		activeBulletPoint()
 	})
 
 	arrowRight.addEventListener('click', function () {
@@ -46,6 +59,7 @@ function changeSlide() {
 		currentSlide = slides[compteurSlide]
 		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
 		tag_line.innerHTML = currentSlide.tagLine
+		activeBulletPoint()
 	})
 }
 
