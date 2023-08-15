@@ -29,12 +29,12 @@ function changeSlide() {
 	arrowLeft.addEventListener('click', function () {
 		console.log('click gauche')
 		compteurSlide--
-		currentSlide = slides[compteurSlide]
-		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
-		tag_line.innerHTML = currentSlide.tagLine
 		if (compteurSlide === -1) {
             compteurSlide = slides.length - 1
         }
+		currentSlide = slides[compteurSlide]
+		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
+		tag_line.innerHTML = currentSlide.tagLine
 	})
 
 	arrowRight.addEventListener('click', function () {
