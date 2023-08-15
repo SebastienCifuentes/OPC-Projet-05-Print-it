@@ -33,6 +33,9 @@ function changeSlide() {
 		currentSlide = slides[compteurSlide]
 		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
 		tag_line.innerHTML = currentSlide.tagLine
+		if (compteurSlide === -1) {
+            compteurSlide = slides.length - 1
+        }
 	})
 
 	arrowRight.addEventListener('click', function () {
@@ -41,6 +44,9 @@ function changeSlide() {
 		currentSlide = slides[compteurSlide]
 		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
 		tag_line.innerHTML = currentSlide.tagLine
+		if (compteurSlide === slides.length - 1) {
+            compteurSlide = -1
+        }
 	})
 }
 
