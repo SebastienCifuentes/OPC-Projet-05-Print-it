@@ -39,7 +39,6 @@ function activeBulletPoint() {
 
 function changeSlide() {
 	arrowLeft.addEventListener('click', function () {
-		console.log('click gauche')
 		compteurSlide--
 		if (compteurSlide === -1) {
             compteurSlide = slides.length - 1
@@ -51,7 +50,6 @@ function changeSlide() {
 	})
 
 	arrowRight.addEventListener('click', function () {
-		console.log('click droit')
 		compteurSlide++
 		if (compteurSlide === slides.length) {
             compteurSlide = 0
