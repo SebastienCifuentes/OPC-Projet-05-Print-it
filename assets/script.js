@@ -17,11 +17,11 @@ const slides = [
 	}
 ]
 
-let compteurSlide = 0
+let counter = 0
 let currentSlide = '/slide1.jpg'
 const imageBaseline = './assets/images/slideshow/'
 const bannerImg = document.querySelector('.banner-img')
-const tag_line = document.querySelector('.tag_line')
+const tagLine = document.querySelector('.tag_line')
 const arrowLeft = document.querySelector('.arrow_left')
 const arrowRight = document.querySelector('.arrow_right')
 const dots = document.querySelectorAll('.dot')
@@ -31,7 +31,7 @@ activeBulletPoint()
 function activeBulletPoint() {
 	dots.forEach((dot, index) => {
 		dot.classList.remove('dot_selected')
-		if (index === compteurSlide) {
+		if (index === counter) {
 			dot.classList.add('dot_selected')
 		}
 	})
@@ -39,24 +39,24 @@ function activeBulletPoint() {
 
 function changeSlide() {
 	arrowLeft.addEventListener('click', function () {
-		compteurSlide--
-		if (compteurSlide === -1) {
-            compteurSlide = slides.length - 1
+		counter--
+		if (counter === -1) {
+            counter = slides.length - 1
         }
-		currentSlide = slides[compteurSlide]
+		currentSlide = slides[counter]
 		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
-		tag_line.innerHTML = currentSlide.tagLine
+		tagLine.innerHTML = currentSlide.tagLine
 		activeBulletPoint()
 	})
 
 	arrowRight.addEventListener('click', function () {
-		compteurSlide++
-		if (compteurSlide === slides.length) {
-            compteurSlide = 0
+		counter++
+		if (counter === slides.length) {
+            counter = 0
 		}
-		currentSlide = slides[compteurSlide]
+		currentSlide = slides[counter]
 		bannerImg.setAttribute('src', imageBaseline + currentSlide.image)
-		tag_line.innerHTML = currentSlide.tagLine
+		tagLine.innerHTML = currentSlide.tagLine
 		activeBulletPoint()
 	})
 }
